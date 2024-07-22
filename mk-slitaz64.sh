@@ -31,19 +31,19 @@ function get_fast_mirror()
     local fast_mirror=`head -n 1 $MIRRORS_SPEED_FILE | cut -d ' ' -f1`
     echo $fast_mirror
 }
-test -f $SOURCES_MIRRORS_FILE
-  if [ "$?" != "0" ]; then  
-    echo -e "$SOURCES_MIRRORS_FILE 不存在.\n"; exit 2
-  else
-    test_mirror_speed
-    fast_mirror=$(get_fast_mirror)
-  if [ "$fast_mirror" == "" ]; then
-    echo -e "无法找到连通的网站数据源，请检查你的列表 $SOURCES_MIRRORS_FILE\n"
-    exit 0
-  fi
-  fi
-echo $fast_mirror
-[ ! -e slitaz-rolling-core64.iso ] && wget $fast_mirror/iso/rolling/slitaz-rolling-core64.iso
+#test -f $SOURCES_MIRRORS_FILE
+#  if [ "$?" != "0" ]; then  
+#    echo -e "$SOURCES_MIRRORS_FILE 不存在.\n"; exit 2
+#  else
+#    test_mirror_speed
+#    fast_mirror=$(get_fast_mirror)
+#  if [ "$fast_mirror" == "" ]; then
+#    echo -e "无法找到连通的网站数据源，请检查你的列表 $SOURCES_MIRRORS_FILE\n"
+#    exit 0
+#  fi
+#  fi
+#echo $fast_mirror
+[ ! -e slitaz-rolling-core64.iso ] && wget http://www.gtlib.gatech.edu/pub/slitaz/iso/rolling/slitaz-rolling-core64.iso
 mkdir iso-old
 [ ! -d iso-old/boot ] && 7z x slitaz-rolling-core64.iso -y -r -o./iso-old
 #[ ! -e packages/linux64-3.16.55.tazpkg ] && wget -O ./packages/linux64-3.16.55.tazpkg https://slitaz.cn/dl/slitaz/linux64-3.16.55.tazpkg
