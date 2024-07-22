@@ -18,8 +18,8 @@ jobs:
         run: |
           mkdir -p slitaz-artifact
           cp -a ./slitaz5.0-rolling-core64-cn.iso  slitaz-artifact/
-          cp -a ./slitaz5.0-rolling-core32-cn.iso slitaz-artifact/
-          cp -a ./slitaz5.0-rolling-core64-cn-docker.iso slitaz-artifact/
+          #cp -a ./slitaz5.0-rolling-core32-cn.iso slitaz-artifact/
+          #cp -a ./slitaz5.0-rolling-core64-cn-docker.iso slitaz-artifact/
 
       - name: upload to artifact
         uses: actions/upload-artifact@v2
