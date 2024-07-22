@@ -6,8 +6,9 @@ tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xz*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install tar*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install curl*.tazpkg --root=$ROOTFS --local
-tazpkg get locale-zh_CN locale-zh_CN-extra bash iptables linux64-netfilter isomaster gvfs-smb dosfstools mdadm
+tazpkg get locale-zh_CN locale-zh_CN-extra bash
 tazpkg get exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
+tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install locale-zh_CN*.tazpkg --root=$ROOTFS --nodeps --local
 yes | tazpkg install bash*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install exfat-utils*.tazpkg --root=$ROOTFS --nodeps --local
@@ -18,13 +19,13 @@ tazpkg install unzip*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install cpio*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install gzip*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install libevent*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install isomaster*.tazpkg --root=$ROOTFS --local
 tazpkg -gi linux64-video --root=$ROOTFS --local
-tazpkg -gi linux64-cifs --root=$ROOTFS --local
 tazpkg -gi linux64-acpi --root=$ROOTFS --local
 tazpkg -gi linux64-configfs --root=$ROOTFS --local
-tazpkg -gi linux64-aufs --root=$ROOTFS --local
-tazpkg -gi nfs-utils --root=$ROOTFS --local
+#tazpkg -gi linux64-cifs --root=$ROOTFS --local
+#tazpkg -gi nfs-utils --root=$ROOTFS --local
+#tazpkg -gi linux64-aufs --root=$ROOTFS --local
+#tazpkg install isomaster*.tazpkg --root=$ROOTFS --local
 #tazpkg install linux64-netfilter*.tazpkg --root=$ROOTFS --nodeps --local
 #tazpkg install git*.tazpkg --root=$ROOTFS --local
 #tazpkg install mdadm*.tazpkg --root=$ROOTFS --nodeps --local
@@ -37,7 +38,6 @@ tazpkg -gi nfs-utils --root=$ROOTFS --local
 #tazpkg get xorg-xf86-video-geode xorg-xf86-video-ati xorg-xf86-video-nouveau xorg-xf86-video-intel xorg-xf86-video-radeonhd xorg-xf86-video-nv
 #tazpkg install xorg-xf86-video*.tazpkg --root=$ROOTFS --local
 #tazpkg -gi openvpn --root=$ROOTFS --local
-#tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
 #tazpkg install sudocn-1.8.4.tazpkg --root=$ROOTFS --nodeps --local
 #tazpkg install ghost-5.0.1.tazpkg --root=$ROOTFS --nodeps --local
 #tazpkg install teasiu*.tazpkg --root=$ROOTFS --nodeps --local
@@ -85,9 +85,9 @@ sed -i '5i\export GTK_IM_MODULE=yong' $ROOTFS/etc/skel/.xinitrc
 sed -i '6i\yong &' $ROOTFS/etc/skel/.xinitrc
 sed -i 's/Monospace/DejaVu Sans Mono/' $ROOTFS/etc/skel/.Xdefaults
 sed -i 's/index.html/index.cn.html/' $ROOTFS/etc/skel/Desktop/slitaz-doc.desktop
-sed -i 's/httpd/httpd dropbear transmission-daemon/' $ROOTFS/etc/rcS.conf
+#sed -i 's/httpd/httpd dropbear transmission-daemon/' $ROOTFS/etc/rcS.conf
 sed -i 's/UTC/Asia\/\Shanghai/' $ROOTFS/etc/init.d/system.sh
-echo '/usr/bin/vlmcsd' >> $ROOTFS/etc/init.d/local.sh
+#echo '/usr/bin/vlmcsd' >> $ROOTFS/etc/init.d/local.sh
 echo "hwclock -s" >> $ROOTFS/etc/init.d/local.sh
 echo 'echo "tux:tux" | chpasswd ' >> $ROOTFS/etc/init.d/local.sh
 sed -i 's/sh/bash/' $ROOTFS/etc/passwd
