@@ -1,0 +1,28 @@
+name: Build and upload slitaz
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: prerequisite
+        run: |
+          sudo apt update && sudo apt install p7zip-full genisoimage curl git bash
+          curl -fsSL https://get.docker.com | bash -s docker
+      - name: actual_build
+        run: |
+          sudo bash mk-slitaz64.sh
+      - name: Prepare artifact
+        run: |
+          mkdir -p slitaz-artifact
+          cp -a ./slitaz5.0-rolling-core64-cn.iso  slitaz-artifact/
+          cp -a ./slitaz5.0-rolling-core32-cn.iso slitaz-artifact/
+          cp -a ./slitaz5.0-rolling-core64-cn-docker.iso slitaz-artifact/
+
+      - name: upload to artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: slitaz5-rolling-core64
+          path: slitaz-artifact/
