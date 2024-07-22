@@ -1,11 +1,5 @@
 #!/bin/sh
 ROOTFS="/tmp/rootfs"
-echo "#######################"
-which gtk-query-immodules-2.0
-which gtk-query-immodules-3.0
-echo "#######################"
-#ln -s /usr/lib/x86_64-linux-gnu/libgtk2.0-0/gtk-query-immodules-2.0 /usr/bin/gtk-query-immodules-2.0
-#ln -s /usr/lib/x86_64-linux-gnu/libgtk3-0/gtk-query-immodules-3.0 /usr/bin/gtk-query-immodules-3.0
 
 tazpkg install linux64-3.16.55.tazpkg --root=$ROOTFS --nodeps --local --forced
 tazpkg get wqy-microhei xz tar curl xorg-xf86-input-vmmouse sudo
@@ -16,7 +10,6 @@ tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xz*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install tar*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install curl*.tazpkg --root=$ROOTFS --local
-tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install locale-zh_CN*.tazpkg --root=$ROOTFS --local
 yes | tazpkg install bash*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install exfat-utils*.tazpkg --root=$ROOTFS --nodeps --local
@@ -30,6 +23,9 @@ tazpkg install libevent*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg -gi linux64-video --root=$ROOTFS --local
 tazpkg -gi linux64-acpi --root=$ROOTFS --local
 tazpkg -gi linux64-configfs --root=$ROOTFS --local
+
+tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
+
 #tazpkg -gi linux64-cifs --root=$ROOTFS --local
 #tazpkg -gi nfs-utils --root=$ROOTFS --local
 #tazpkg -gi linux64-aufs --root=$ROOTFS --local
@@ -109,10 +105,6 @@ rm ID*
 rm files*
 rm *.txt
 rm extra.list
-echo "#######################"
-which gtk-query-immodules-2.0
-which gtk-query-immodules-3.0
-echo "#######################"
 gtk-query-immodules-2.0 --update-cache
 EOF
 
