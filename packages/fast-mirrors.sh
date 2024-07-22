@@ -7,8 +7,8 @@ MIRRORS_SPEED_FILE="/tmp/mirrors_speed.list"
 function get_ping_speed()
 {
 local speed=`ping -W1 -c1 $1 2> /dev/null | grep "^rou" |  cut -d '/' -f5`
-#echo $speed
-echo 100
+echo $speed
+#echo 100
 }
 function test_mirror_speed()    #
 {
