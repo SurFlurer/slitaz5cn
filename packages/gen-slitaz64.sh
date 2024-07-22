@@ -1,17 +1,18 @@
 #!/bin/sh
 ROOTFS="/tmp/rootfs"
 
-ls /usr/lib
+which gtk-query-immodules-2.0
+which gtk-query-immodules-3.0
 
 #ln -s /usr/lib/x86_64-linux-gnu/libgtk2.0-0/gtk-query-immodules-2.0 /usr/bin/gtk-query-immodules-2.0
 #ln -s /usr/lib/x86_64-linux-gnu/libgtk3-0/gtk-query-immodules-3.0 /usr/bin/gtk-query-immodules-3.0
 
 tazpkg install linux64-3.16.55.tazpkg --root=$ROOTFS --nodeps --local --forced
-tazpkg get xz tar curl xorg-xf86-input-vmmouse sudo
+tazpkg get wqy-microhei xz tar curl xorg-xf86-input-vmmouse sudo
 tazpkg get locale-zh_CN locale-zh_CN-extra bash
 tazpkg get exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
 tazpkg install sudo-*.tazpkg --root=$ROOTFS --nodeps --local
-#tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
+tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xz*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install tar*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install curl*.tazpkg --root=$ROOTFS --local
