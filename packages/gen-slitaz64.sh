@@ -1,9 +1,9 @@
 #!/bin/sh
 ROOTFS="/tmp/rootfs"
-
+echo "#######################"
 which gtk-query-immodules-2.0
 which gtk-query-immodules-3.0
-
+echo "#######################"
 #ln -s /usr/lib/x86_64-linux-gnu/libgtk2.0-0/gtk-query-immodules-2.0 /usr/bin/gtk-query-immodules-2.0
 #ln -s /usr/lib/x86_64-linux-gnu/libgtk3-0/gtk-query-immodules-3.0 /usr/bin/gtk-query-immodules-3.0
 
@@ -109,6 +109,10 @@ rm ID*
 rm files*
 rm *.txt
 rm extra.list
+echo "#######################"
+which gtk-query-immodules-2.0
+which gtk-query-immodules-3.0
+echo "#######################"
 gtk-query-immodules-2.0 --update-cache
 EOF
 
