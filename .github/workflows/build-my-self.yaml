@@ -10,7 +10,7 @@ jobs:
       - name: prerequisite
         run: |
           sudo apt update && sudo apt install p7zip-full genisoimage curl git bash
-          curl -fsSL https://get.docker.com | bash -s docker
+          #curl -fsSL https://get.docker.com | bash -s docker
       - name: actual_build
         run: |
           sudo bash mk-slitaz64.sh
