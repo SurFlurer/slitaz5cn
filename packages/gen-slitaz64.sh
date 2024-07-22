@@ -2,12 +2,12 @@
 ROOTFS="/tmp/rootfs"
 tazpkg install linux64-3.16.55.tazpkg --root=$ROOTFS --nodeps --local --forced
 tazpkg get wqy-microhei xz tar curl xorg-xf86-input-vmmouse
+tazpkg get locale-zh_CN locale-zh_CN-extra bash
+tazpkg get exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
 tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xz*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install tar*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install curl*.tazpkg --root=$ROOTFS --local
-tazpkg get locale-zh_CN locale-zh_CN-extra bash
-tazpkg get exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
 tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install locale-zh_CN*.tazpkg --root=$ROOTFS --nodeps --local
 yes | tazpkg install bash*.tazpkg --root=$ROOTFS --nodeps --local
