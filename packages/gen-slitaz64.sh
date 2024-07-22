@@ -1,51 +1,51 @@
 #!/bin/sh
 ROOTFS="/tmp/rootfs"
 tazpkg install linux64-3.16.55.tazpkg --root=$ROOTFS --nodeps --local --forced
-tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install sudocn-1.8.4.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install ghost-5.0.1.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg get wqy-microhei xz tar curl git xorg-xf86-input-vmmouse grsync
+tazpkg get wqy-microhei xz tar curl xorg-xf86-input-vmmouse
 tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xz*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install tar*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install curl*.tazpkg --root=$ROOTFS --local
-tazpkg install git*.tazpkg --root=$ROOTFS --local
 tazpkg get locale-zh_CN locale-zh_CN-extra bash iptables linux64-netfilter isomaster gvfs-smb dosfstools mdadm
-tazpkg get exfat-utils gftp xorg-xf86-video-vmware p7zip-full zip unzip cpio gzip transmission-daemon libevent axel
+tazpkg get exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
 tazpkg install locale-zh_CN*.tazpkg --root=$ROOTFS --nodeps --local
 yes | tazpkg install bash*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install linux64-netfilter*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install iptables*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install exfat-utils*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install gftp*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xorg-xf86-video-vmware*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xorg-xf86-input-vmmouse*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install p7zip-full*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install zip*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install unzip*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install cpio*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install gzip*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install rar*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install xarchiver*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install libevent*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install transmission-daemon*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install isomaster*.tazpkg --root=$ROOTFS --local
-tazpkg install gvfs-smb*.tazpkg --root=$ROOTFS --local
-tazpkg install transmission-web-contrl-1.61.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install dosfstools*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install mdadm*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install grsync*.tazpkg --root=$ROOTFS --local
-tazpkg install axel*.tazpkg --root=$ROOTFS --nodeps --local
-#tazpkg get xorg-xf86-video-geode xorg-xf86-video-ati xorg-xf86-video-nouveau xorg-xf86-video-intel xorg-xf86-video-radeonhd xorg-xf86-video-nv
-#tazpkg install xorg-xf86-video*.tazpkg --root=$ROOTFS --local
-#tazpkg -gi openvpn --root=$ROOTFS --local
 tazpkg -gi linux64-video --root=$ROOTFS --local
 tazpkg -gi linux64-cifs --root=$ROOTFS --local
 tazpkg -gi linux64-acpi --root=$ROOTFS --local
 tazpkg -gi linux64-configfs --root=$ROOTFS --local
 tazpkg -gi linux64-aufs --root=$ROOTFS --local
 tazpkg -gi nfs-utils --root=$ROOTFS --local
-tazpkg install teasiu*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install linux64-netfilter*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install git*.tazpkg --root=$ROOTFS --local
+#tazpkg install mdadm*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install iptables*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install transmission-web-contrl-1.61.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install dosfstools*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install gvfs-smb*.tazpkg --root=$ROOTFS --local
+#tazpkg install grsync*.tazpkg --root=$ROOTFS --local
+#tazpkg install axel*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg get xorg-xf86-video-geode xorg-xf86-video-ati xorg-xf86-video-nouveau xorg-xf86-video-intel xorg-xf86-video-radeonhd xorg-xf86-video-nv
+#tazpkg install xorg-xf86-video*.tazpkg --root=$ROOTFS --local
+#tazpkg -gi openvpn --root=$ROOTFS --local
+#tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install sudocn-1.8.4.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install ghost-5.0.1.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install teasiu*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install gftp*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install p7zip-full*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install rar*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install xarchiver*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install transmission-daemon*.tazpkg --root=$ROOTFS --nodeps --local
 cp -rf $ROOTFS/etc/xdg/openbox/menu.zh_CN.xml $ROOTFS/etc/xdg/openbox/menu.en.xml
 cp -a updatetime.txt $ROOTFS/etc
 mkdir -p $ROOTFS/etc/skel/.config/slitaz
