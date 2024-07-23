@@ -51,25 +51,19 @@ mkdir iso-old
 #[ ! -e packages/updatetime.txt ] && wget -O ./packages/updatetime.txt https://slitaz.cn/dl/slitaz/iso/rolling/slitaz-rolling-core64-chinese-updatetime.txt
 docker build -t newrootfs -f ./dockerfile-rootfs64 .
 docker run --name myrootfs newrootfs
-rm -f ./iso-old/EFI/esp.img
+#rm -f ./iso-old/EFI/esp.img
+#rm -f ./iso-old/EFI/boot/rootfs.gz
 rm -f ./iso-old/boot/rootfs.gz
-rm -f ./iso-old/EFI/boot/rootfs.gz
-echo "###############"
-ls ./iso-old/EFI/
-echo "###############"
-ls ./iso-old/boot/
-echo "###############"
-ls ./iso-old/EFI/boot/
-echo "###############"
+rm -rf ./iso-old/EFI/
 docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/boot/rootfs.gz
-docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/EFI/boot/rootfs.gz
-echo "###############"
-ls ./iso-old/
-echo "###############"
-ls ./iso-old/boot/
-echo "###############"
-ls ./iso-old/EFI/boot/
-echo "###############"
+#docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/EFI/boot/rootfs.gz
+#echo "###############"
+#ls ./iso-old/
+#echo "###############"
+#ls ./iso-old/boot/
+#echo "###############"
+#ls ./iso-old/EFI/boot/
+#echo "###############"
 docker stop myrootfs
 docker rm myrootfs
 docker rmi newrootfs
