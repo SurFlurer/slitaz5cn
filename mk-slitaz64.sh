@@ -73,5 +73,5 @@ echo "###############"
 docker stop myrootfs
 docker rm myrootfs
 docker rmi newrootfs
-mkisofs -r -T -J -V "Slitaz_ISO" -b /iso-old/boot/isolinux.bin -c ./iso-old/boot/isolinux/boot.cat -boot-load-size 4 \
+mkisofs -r -T -J -V "Slitaz_ISO" -b ./iso-old/boot/isolinux/isolinux.bin -c ./iso-old/boot/isolinux/boot.cat -boot-load-size 4 \
 	-boot-info-table -eltorito-alt-boot -no-emul-boot -v -o slitaz5.0-rolling-core64-cn.iso ./iso-old/
