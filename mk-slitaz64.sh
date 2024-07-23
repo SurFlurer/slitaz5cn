@@ -51,14 +51,17 @@ mkdir iso-old
 #[ ! -e packages/updatetime.txt ] && wget -O ./packages/updatetime.txt https://slitaz.cn/dl/slitaz/iso/rolling/slitaz-rolling-core64-chinese-updatetime.txt
 docker build -t newrootfs -f ./dockerfile-rootfs64 .
 docker run --name myrootfs newrootfs
-rm -f ./iso-old/EFI/ESP.IMG
-rm -f ./iso-old/BOOT/ROOTFS.GZ
-rm -f ./iso-old/EFI/BOOT/ROOTFS.GZ
-docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/BOOT/rootfs.gz
-docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/EFI/BOOT/rootfs.gz
-rm -f ./iso-old/EFI/ESP.IMG
+#rm -f ./iso-old/EFI/ESP.IMG
+#rm -f ./iso-old/BOOT/ROOTFS.GZ
+#rm -f ./iso-old/EFI/BOOT/ROOTFS.GZ
+#docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/BOOT/rootfs.gz
+#docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/EFI/BOOT/rootfs.gz
+#rm -f ./iso-old/EFI/ESP.IMG
+ls ./
+ls ../
+ls ./iso-old/
 docker stop myrootfs
 docker rm myrootfs
 docker rmi newrootfs
-mkisofs -r -T -J -b /iso-old/BOOT/ISOLINUX/ISOLINUX.BIN -c ./iso-old/BOOT/ISOLINUX/boot.cat -boot-load-size 4 \
-	-boot-info-table -eltorito-alt-boot -no-emul-boot -v -o slitaz5.0-rolling-core64-cn.iso ./iso-old/
+#mkisofs -r -T -J -b /iso-old/BOOT/ISOLINUX/ISOLINUX.BIN -c ./iso-old/BOOT/ISOLINUX/boot.cat -boot-load-size 4 \
+#	-boot-info-table -eltorito-alt-boot -no-emul-boot -v -o slitaz5.0-rolling-core64-cn.iso ./iso-old/
