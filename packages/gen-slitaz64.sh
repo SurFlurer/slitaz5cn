@@ -2,7 +2,7 @@
 ROOTFS="/tmp/rootfs"
 
 #tazpkg install linux64-3.16.55.tazpkg --root=$ROOTFS --nodeps --local --forced
-tazpkg get wqy-microhei xz tar curl xorg-xf86-input-vmmouse sudo locale-zh_CN locale-zh_CN-extra bash exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
+tazpkg get wqy-microhei xz tar curl sudo locale-zh_CN locale-zh_CN-extra bash exfat-utils zip unzip cpio gzip libevent
 tazpkg install sudo-*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xz*.tazpkg --root=$ROOTFS --nodeps --local
@@ -11,8 +11,6 @@ tazpkg install curl*.tazpkg --root=$ROOTFS --local
 tazpkg install locale-zh_CN*.tazpkg --root=$ROOTFS --local
 yes | tazpkg install bash*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install exfat-utils*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install xorg-xf86-video-vmware*.tazpkg --root=$ROOTFS --nodeps --local
-tazpkg install xorg-xf86-input-vmmouse*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install zip*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install unzip*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install cpio*.tazpkg --root=$ROOTFS --nodeps --local
@@ -24,6 +22,8 @@ tazpkg -gi linux64-configfs --root=$ROOTFS --local
 
 tazpkg install yong-2.5.0.tazpkg --root=$ROOTFS --nodeps --local
 
+#tazpkg install xorg-xf86-video-vmware*.tazpkg --root=$ROOTFS --nodeps --local
+#tazpkg install xorg-xf86-input-vmmouse*.tazpkg --root=$ROOTFS --nodeps --local
 #tazpkg -gi linux64-cifs --root=$ROOTFS --local
 #tazpkg -gi nfs-utils --root=$ROOTFS --local
 #tazpkg -gi linux64-aufs --root=$ROOTFS --local
