@@ -53,9 +53,16 @@ docker build -t newrootfs -f ./dockerfile-rootfs64 .
 docker run --name myrootfs newrootfs
 rm -f ./iso-old/efi/esp.img
 rm -f ./iso-old/boot/rootfs.gz
-rm -f ./iso-old/efi/boot/rootfs.gz
+rm -f ./iso-old/EFI/boot/rootfs.gz
+echo "###############"
+ls ./iso-old/EFI/
+echo "###############"
+ls ./iso-old/boot/
+echo "###############"
+ls ./iso-old/EFI/boot/
+echo "###############"
 docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/boot/rootfs.gz
-docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/efi/boot/rootfs.gz
+docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/EFI/boot/rootfs.gz
 echo "###############"
 ls ./iso-old/
 echo "###############"
@@ -66,5 +73,5 @@ echo "###############"
 docker stop myrootfs
 docker rm myrootfs
 docker rmi newrootfs
-#mkisofs -r -T -J -b /iso-old/BOOT/ISOLINUX/ISOLINUX.BIN -c ./iso-old/BOOT/ISOLINUX/boot.cat -boot-load-size 4 \
-#	-boot-info-table -eltorito-alt-boot -no-emul-boot -v -o slitaz5.0-rolling-core64-cn.iso ./iso-old/
+mkisofs -r -T -J -b /iso-old/boot/isolinux.bin -c ./iso-old/boot/isolinux/boot.cat -boot-load-size 4 \
+	-boot-info-table -eltorito-alt-boot -no-emul-boot -v -o slitaz5.0-rolling-core64-cn.iso ./iso-old/
