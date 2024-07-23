@@ -51,9 +51,8 @@ mkdir iso-old
 #[ ! -e packages/updatetime.txt ] && wget -O ./packages/updatetime.txt https://slitaz.cn/dl/slitaz/iso/rolling/slitaz-rolling-core64-chinese-updatetime.txt
 docker build -t newrootfs -f ./dockerfile-rootfs64 .
 docker run --name myrootfs newrootfs
-docker cp myrootfs:/tmp/rootfs-new.gz ./iso64/mkiso/rootfs.gz
+docker cp -f myrootfs:/tmp/rootfs-new.gz ./iso-old/rootfs.gz
 docker stop myrootfs
 docker rm myrootfs
 docker rmi newrootfs
-cd iso64
-sh iso.sh
+mkisofs -o slitaz5.0-rolling-core64-cn.iso ./iso-old
