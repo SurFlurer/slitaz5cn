@@ -51,15 +51,18 @@ mkdir iso-old
 #[ ! -e packages/updatetime.txt ] && wget -O ./packages/updatetime.txt https://slitaz.cn/dl/slitaz/iso/rolling/slitaz-rolling-core64-chinese-updatetime.txt
 docker build -t newrootfs -f ./dockerfile-rootfs64 .
 docker run --name myrootfs newrootfs
-#rm -f ./iso-old/EFI/ESP.IMG
-#rm -f ./iso-old/BOOT/ROOTFS.GZ
-#rm -f ./iso-old/EFI/BOOT/ROOTFS.GZ
-#docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/BOOT/rootfs.gz
-#docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/EFI/BOOT/rootfs.gz
-#rm -f ./iso-old/EFI/ESP.IMG
-ls ./
-ls ../
+rm -f ./iso-old/efi/esp.img
+rm -f ./iso-old/boot/rootfs.gz
+rm -f ./iso-old/efi/boot/rootfs.gz
+docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/boot/rootfs.gz
+docker cp myrootfs:/tmp/rootfs-new.gz ./iso-old/efi/boot/rootfs.gz
+echo "###############"
 ls ./iso-old/
+echo "###############"
+ls ./iso-old/boot/
+echo "###############"
+ls ./iso-old/EFI/boot/
+echo "###############"
 docker stop myrootfs
 docker rm myrootfs
 docker rmi newrootfs
