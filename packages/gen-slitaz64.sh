@@ -1,10 +1,8 @@
 #!/bin/sh
 ROOTFS="/tmp/rootfs"
 
-tazpkg install linux64-3.16.55.tazpkg --root=$ROOTFS --nodeps --local --forced
-tazpkg get wqy-microhei xz tar curl xorg-xf86-input-vmmouse sudo
-tazpkg get locale-zh_CN locale-zh_CN-extra bash
-tazpkg get exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
+#tazpkg install linux64-3.16.55.tazpkg --root=$ROOTFS --nodeps --local --forced
+tazpkg get wqy-microhei xz tar curl xorg-xf86-input-vmmouse sudo locale-zh_CN locale-zh_CN-extra bash exfat-utils xorg-xf86-video-vmware zip unzip cpio gzip libevent
 tazpkg install sudo-*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install wqy-microhei*.tazpkg --root=$ROOTFS --nodeps --local
 tazpkg install xz*.tazpkg --root=$ROOTFS --nodeps --local
